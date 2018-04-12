@@ -1,0 +1,49 @@
+@import "mixin";
+@import "variables";
+@import "reset";
+@import "fonts";
+
+.menu-icon{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: #333937;
+  //border-radius: 50%;
+  &__line{
+    position: relative;
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s;
+    &:before, &:after{
+      position: absolute;
+      display: block;
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: #fff;
+      transition: 0.3s;
+    }
+    &:before{
+      top: -10px;
+    }
+    &:after{
+      top: 10px;
+    }
+  }
+  &.active &__line{
+      background: transparent;
+      &:before{
+        top: 0;
+        transform: rotate(45deg);
+      }
+      &:after{
+        top: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
